@@ -249,7 +249,6 @@ class ReflectionViewContainer : LinearLayout {
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
             if (this::toReflect.isInitialized) {
-                canvas.save()
                 val cx = width / 2f
                 val cy = height / 2f
                 // rotating, flipping and translating the canvas to create the required mirror image.
@@ -262,7 +261,6 @@ class ReflectionViewContainer : LinearLayout {
                 canvas.translate(0f, -mTranslateY)
                 canvas.clipRect(left, top, width, height)
                 toReflect.draw(canvas)
-                canvas.restore()
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(),  mPaint)
             }
         }
